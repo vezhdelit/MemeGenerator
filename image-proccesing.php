@@ -30,7 +30,6 @@
 
         imagepng($image, $resultPath);
         imagedestroy($image);
-
         $_SESSION['text'] = $_POST['text'];
         $_SESSION['positionX'] = $_POST['positionX'];
         $_SESSION['positionY'] = $_POST['positionY'];
