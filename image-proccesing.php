@@ -15,7 +15,12 @@
             $imagePath = 'uploads/' . $_SESSION['fileName'];
             $resultPath ='result/' . $_SESSION['fileName'];
         }
-        $image = imagecreatefrompng($imagePath);
+        if(imagecreatefrompng($imagePath)) {
+            $image = imagecreatefrompng($imagePath);
+        }
+        else{
+            $image = imagecreatefromjpeg($imagePath);
+        }
 
         $fontSize = $_POST['textSize'];
         $angle = $_POST['textAngle'];
@@ -28,8 +33,14 @@
 
         imagettfstroketext($image, $fontSize, $angle, $width, $height, $textColor, $borderColor, $fontPath, $text,$borderPX);
 
-        imagepng($image, $resultPath);
+        if(imagecreatefrompng($imagePath)) {
+            imagepng($image, $resultPath);
+        }
+        else{
+            imagejpeg($image, $resultPath);
+        }
         imagedestroy($image);
+
         $_SESSION['text'] = $_POST['text'];
         $_SESSION['positionX'] = $_POST['positionX'];
         $_SESSION['positionY'] = $_POST['positionY'];

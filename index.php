@@ -6,8 +6,8 @@
 <body>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css">
     <div class="container mt-2 shadow p-2 mb-2 bg-body rounded " style="width: 40%;">
-        <form action="image-proccesing.php" method="post" class="col text-center" enctype="multipart/form-data" >
-            <input type="file" name="file" class="form-control" required ><br>
+        <form action="image-proccesing.php" method="post" class="col text-center" enctype="multipart/form-data" onsubmit="if (!(document.getElementById('file').value.match(/png$|jpg$|jpeg$/))) { alert ('Bad file type. Must be an image!') ; return false; } else { return true; }">
+            <input type="file" name="file" id="file" class="form-control" required><br>
             <input type="text" name="text" placeholder="Enter text" class="form-control" autocomplete="off" required ><br>
 
             <div class="row">
@@ -65,7 +65,7 @@
                 <div class="col-sm-7">
                     <input type="color" id="fontColor" name="fontColor" value="#ffffff" class="form-control">
                 </div>
-            </div>
+            </div><br>
 
             <input type="submit" name="submit" value="Generate" class="btn btn-primary"><br>
         </form>

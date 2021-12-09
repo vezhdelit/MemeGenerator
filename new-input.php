@@ -62,9 +62,9 @@ if(isset($_SESSION['text'])){ ?>
                 <div class="col-sm-7">
                     <input type="color" id="fontColor" name="fontColor" value="<?= $_SESSION['fontColor'];?>" class="form-control">
                 </div>
-            </div>
+            </div><br>
 
-            <br><input type="submit" name="submit" value="Generate again" class="btn btn-primary"><br>
+            <input type="submit" name="submit" value="Generate again" class="btn btn-primary"><br>
         </form>
     </div>
     <?php } ?>
